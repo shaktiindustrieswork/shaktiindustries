@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shakti Industries | Innovative Business Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --gray: #7f8c8d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        h1, h2, h3, h4 {
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+        }
+        
+        p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-accent {
+            background: var(--accent);
+        }
+        
+        .btn-accent:hover {
+            background: #c0392b;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+        
+        /* Hero Section with Slider */
+        .hero {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            margin-top: 0px;
+        }
+        
+        .slider {
+            height: 100%;
+            position: relative;
+        }
+        
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+        }
+        
+        .slide.active {
+            opacity: 1;
+        }
+        
+        .slide-content {
+            max-width: 600px;
+            padding: 0 50px;
+            color: white;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+        
+        .slide-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .slide-content p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+        }
+        
+        .slide-1 {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('bench.jpg');
+        }
+        
+        .slide-2 {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('bed.jpg');
+        }
+        
+        .slide-3 {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('powerpress.jpg');
+        }
+        
+        .slider-nav {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+        }
+        
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            margin: 0 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .slider-dot.active {
+            background: white;
+        }
+        
+        /* Products Section */
+        .products {
+            background: white;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .product-img {
+            height: 350px;
+            background-size: cover;
+            background-position: center;
+            object-fit: cover;
+        }
+        
+        .product-content {
+            padding: 20px;
+        }
+        
+        .product-content h3 {
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+        
+        .product-content p {
+            color: var(--gray);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+        
+        /* Product Details Section */
+        .product-details {
+            display: none;
+            background: var(--light);
+            padding: 60px 0;
+        }
+        
+        .product-details.active {
+            display: block;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--secondary);
+            text-decoration: none;
+            margin-bottom: 30px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        .back-link i {
+            margin-right: 8px;
+        }
+        
+        /* Services Section */
+        .services {
+            background: var(--light);
+        }
+        
+        .services-grid {
+            display: grid;
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-img {
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 0px;
+            padding: 0px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .founder-info {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+        }
+        
+        .founder-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            float: left;
+            margin-right: 20px;
+        }
+        
+        .founder-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Clients Section */
+        .clients {
+            background: var(--light);
+            text-align: center;
+        }
+        
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .client-logo {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .client-logo img {
+            max-width: 100%;
+            max-height: 90px;
+            transition: filter 0.3s;
+        }
+        
+        .client-logo:hover img {
+            filter: grayscale(0%);
+        }
+        
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin-right: 15px;
+            width: 30px;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+            position: relative;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--secondary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+
+        /* Product Gallery Styles */
+        .product-gallery-container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-top: 20px;
+        }
+        
+        .gallery-content {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        
+        .product-list {
+            flex: 1;
+            min-width: 250px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            margin-right: 20px;
+        }
+        
+        .product-list h2 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eaeaea;
+            text-align: left;
+        }
+        
+        .product-list h2:after {
+            display: none;
+        }
+        
+        .product-item {
+            padding: 12px 15px;
+            margin: 8px 0;
+            background: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        
+        .product-item:hover {
+            background: #eef5ff;
+            transform: translateX(5px);
+        }
+        
+        .product-item.active {
+            background: #eef5ff;
+            border-left: 4px solid var(--secondary);
+            font-weight: bold;
+        }
+        
+        .product-display {
+            flex: 2;
+            min-width: 300px;
+            padding: 20px;
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 300px;
+            background: #f0f0f0;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+        
+        .product-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .product-title {
+            font-size: 1.8rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+        
+        .product-description {
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .features {
+            margin: 20px 0;
+        }
+        
+        .features h3 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+        
+        .features ul {
+            list-style-type: none;
+        }
+        
+        .features li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+        
+        .demo-section {
+            background: linear-gradient(135deg, #1665D8 0%, #1F259B 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+        
+        .demo-section h2 {
+            margin-bottom: 15px;
+            color: white;
+        }
+        
+        .demo-section h2:after {
+            background: white;
+        }
+        
+        .demo-btn {
+            display: inline-block;
+            background: white;
+            color: #1665D8;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .demo-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .gallery-content {
+                flex-direction: column;
+            }
+            
+            .product-list {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-img {
+                order: -1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 0;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 50px;
+                transition: left 0.3s;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .slide-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .slide-content p {
+                font-size: 1.1rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#home" class="logo">Shakti <span>Industries</span></a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section with Slider -->
+    <section id="home" class="hero">
+        <div class="slider">
+            <div class="slide slide-1 active">
+                <div class="container">
+                    <div class="slide-content">
+                        <h1>Complete manufacturing Benches as per requirement</h1>
+                        <a href="#contact" class="btn btn-accent" style="margin-left: 15px;">Contact Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="slide slide-2">
+                <div class="container">
+                    <div class="slide-content">
+                        <h1>We manufacture high-quality Hospital equipments</h1>
+                        <a href="#contact" class="btn btn-accent" style="margin-left: 15px;">Contact Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="slide slide-3">
+                <div class="container">
+                    <div class="slide-content">
+                        <h1>Delivering reliable advanced industrial machinery</h1>
+                        <a href="#contact" class="btn btn-accent" style="margin-left: 15px;">Contact Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-nav">
+                <div class="slider-dot active" data-slide="0"></div>
+                <div class="slider-dot" data-slide="1"></div>
+                <div class="slider-dot" data-slide="2"></div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <h2>Our Products</h2>
+            <div class="products-grid">
+                <div class="product-card" data-product="1">
+                    <div class="product-img" style="background-image: url('bn.webp'); "></div>
+                    <div class="product-content">
+                        <h3>Benches</h3>
+                        <p>We manufacture four different types of Benches</p>
+                        <span class="btn">View Details</span>
+                    </div>
+                </div>
+                <div class="product-card" data-product="2">
+                    <div class="product-img" style="background-image: url('hb.webp');"></div>
+                    <div class="product-content">
+                        <h3>Hospital Equipments</h3>
+                        <p>All types of hospital equipments</p>
+                        <span class="btn">View Details</span>
+                    </div>
+                </div>
+                <div class="product-card" data-product="3">
+                    <div class="product-img" style="background-image: url('pp.jpg');"></div>
+                    <div class="product-content">
+                        <h3>Machinery Works</h3>
+                        <p>Machinery Works like Converter Machines, Pipe Tube Mills, Custom Solutions</p>
+                        <span class="btn">View Details</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Details Sections -->
+    <!-- Benches Gallery -->
+    <div id="product-details-1" class="product-details">
+        <div class="container">
+            <a class="back-link" onclick="hideProductDetails()"><i class="fas fa-arrow-left"></i> Back to Products</a>
+            
+            <div class="product-gallery-container">
+                <div class="gallery-content">
+                    <div class="product-list">
+                        <h2>Our Benches</h2>
+                        <div class="product-item active" data-product="regular">
+                            1. Regular Bench
+                        </div>
+                        <div class="product-item" data-product="bending">
+                            2. Bending Bench
+                        </div>
+                        <div class="product-item" data-product="folding">
+                            3. Folding Bench
+                        </div>
+                        <div class="product-item" data-product="adjustable">
+                            4. Adjustable Bench
+                        </div>
+                    </div>
+                    
+                    <div class="product-display">
+                        <div class="product-image">
+                            <img id="bench-img" src="benchs.png" alt="Regular Bench">
+                        </div>
+                     <h2 id="bench-title" class="product-title">Regular Bench</h2>
+                        
+                        <p id="bench-description" class="product-description">
+                            A regular bench is a simple, sturdy seating structure designed to accommodate multiple people. Typically constructed from wood, metal, or a combination of both, it features a long, flat seat supported by stable legs. Some benches include a backrest for added comfort, while others maintain a minimalist, backless design. Commonly found in parks, gardens, public spaces, gyms, and indoor settings, a regular bench provides practical, durable seating suitable for rest, conversation, or everyday use.
+                        </p>
+                        
+                        <div class="features">
+                            <h3>Key Features</h3>
+                            <ul id="bench-features">
+                                <li>Sturdy steel frame construction.</li>
+                                <li>High-quality, durable work surface.</li>
+                                <li>Ergonomic height for comfortable use.</li>
+                                <li>Easy to clean and maintain.</li>
+                                <li>Available in multiple sizes.</li>
+                                <li>Powder-coated finish for longevity.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="demo-section">
+                    <h2>Request for Quote</h2>
+                    <p>Interested in our benches? Contact us today to schedule a meet.</p>
+                    <a href="#contact" class="demo-btn">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hospital Equipment Gallery -->
+    <div id="product-details-2" class="product-details">
+        <div class="container">
+            <a class="back-link" onclick="hideProductDetails()"><i class="fas fa-arrow-left"></i> Back to Products</a>
+            
+            <div class="product-gallery-container">
+                <div class="gallery-content">
+                    <div class="product-list">
+                        <h2>Our Hospital Equipment</h2>
+                        <div class="product-item active" data-product="hospital-bed">
+                            1. Hospital Bed
+                        </div>
+                        <div class="product-item" data-product="icu-equipment">
+                            2. Compact Dressing Trolley
+                        </div>
+                        <div class="product-item" data-product="surgical-table">
+                            3. S.S Saline Stand
+                        </div>
+                        <div class="product-item" data-product="medical-cart">
+                            4. Swing-away Railing
+                        </div>
+                    </div>
+                    
+                    <div class="product-display">
+                        <div class="product-image">
+                            <img id="hospital-img" src="hb.webp" alt="Hospital Bed">
+                        </div>
+                        
+                        <h2 id="hospital-title" class="product-title">Hospital Bed</h2>
+                        
+                        <p id="hospital-description" class="product-description">
+                            Our Hospital Beds are designed with patient comfort and safety in mind, featuring adjustable positions and durable construction for healthcare facilities.
+                        </p>
+                        
+                        <div class="features">
+                            <h3>Key Features</h3>
+                            <ul id="hospital-features">
+                                <li>Adjustable height and backrest.</li>
+                                <li>Side rails for patient safety.</li>
+                                <li>Medical-grade materials.</li>
+                                <li>Easy to clean and disinfect.</li>
+                                <li>Locking casters for stability.</li>
+                                <li>Emergency CPR function.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="demo-section">
+                    <h2>Request for Quote</h2>
+                    <p>Interested in our hospital equipment? Contact us today to schedule a meet.</p>
+                    <a href="#contact" class="demo-btn">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Machinery Works Gallery -->
+    <div id="product-details-3" class="product-details">
+        <div class="container">
+            <a class="back-link" onclick="hideProductDetails()"><i class="fas fa-arrow-left"></i> Back to Products</a>
+            
+            <div class="product-gallery-container">
+                <div class="gallery-content">
+                    <div class="product-list">
+                        <h2>Our Machinery Works</h2>
+                        <div class="product-item active" data-product="converter-machine">
+                            1. Belt Conveyor Machine
+                        </div>
+                        <div class="product-item" data-product="pipe-tube-mill">
+                            2. Pipe Tube mill
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="product-display">
+                        <div class="product-image">
+                            <img id="machinery-img" src="belt-conveyor-machine-515.jpg" alt="Converter Machine">
+                        </div>
+                        
+                        <h2 id="machinery-title" class="product-title">Belt Conveyor Machine</h2>
+                        
+                        <p id="machinery-description" class="product-description">
+                            A belt conveyor is a ubiquitous material handling system that moves items, bulk materials, or packages from one location to another using a continuous loop of material—the conveyor belt. This belt is stretched over a frame and is supported along its length by a series of rollers called idlers. The belt is driven at one end by a motorized pulley (the drive pulley), which provides the traction to move the belt and its load. The other end houses a return pulley that guides the belt back to the loading point.
+                        </p>
+                        
+                        <div class="features">
+                            <h3>Key Features</h3>
+                            <ul id="machinery-features">
+                                <li>The primary advantage of a belt conveyor is its ability to provide a continuous and consistent flow of material.</li>
+                                <li>Can be straight, inclined, declined, or even include curves. They can be horizontal or set at an angle to change elevation.</li>
+                                <li>Durable construction for long service life.</li>
+                                <li>Ranges from small, delicate conveyors in electronics assembly to massive, kilometer-long systems in mining.</li>
+                                <li>Customizable to specific requirements.</li>
+                                <li>Belt Material: Can be rubber, PVC, fabric, metal mesh, or plastic modular, chosen based on the product (e.g., food-grade, high-temperature, abrasive materials).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="demo-section">
+                    <h2>Request for Quote</h2>
+                    <p>Interested in our Machinery works? Contact us today to schedule a meet.</p>
+                    <a href="#contact" class="demo-btn">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Product data for dynamic updates
+        const productData = {
+            // Benches data
+            '1': {
+                'regular': {
+                    img: 'benchs.png',
+                    title: 'Regular Bench',
+                    description: 'A regular bench is a simple, sturdy seating structure designed to accommodate multiple people. Typically constructed from wood, metal, or a combination of both, it features a long, flat seat supported by stable legs. Some benches include a backrest for added comfort, while others maintain a minimalist, backless design. Commonly found in parks, gardens, public spaces, gyms, and indoor settings, a regular bench provides practical, durable seating suitable for rest, conversation, or everyday use.',
+                    features: [
+                        'Sturdy steel frame construction.',
+                        'High-quality, durable work surface.',
+                        'Ergonomic height for comfortable use.',
+                        'Easy to clean and maintain.',
+                        'Available in multiple sizes.',
+                        'Powder-coated finish for longevity.'
+                    ]
+                },
+                'bending': {
+                    img: 'bendingbench.jpg',
+                    title: 'Bending Bench',
+                    description: 'A bending bench is a versatile strength-training bench designed to support a wide range of upper- and lower-body exercises. Built with an adjustable seat and backrest, the bench can be set to multiple angles—including flat, incline, and decline positions—allowing users to perform exercises such as presses, flyes, crunches, and dumbbell work with proper support and form. Featuring a durable steel frame, high-density foam padding, and non-slip foot stability, a bending bench provides comfort, safety, and adaptability for home gyms and commercial fitness environments.',
+                    features: [
+                        'Adjustable angle mechanism.',
+                        'Sturdy construction for stability.',
+                        'Easy-to-use locking system.',
+                        'Ergonomic design for user comfort.',
+                        'Durable materials for long life.',
+                        'Customizable angles and sizes.'
+                    ]
+                },
+                'folding': {
+                    img: 'foldingbench.jpg',
+                    title: 'Folding Bench',
+                    description: 'A folding bench is a lightweight, portable seating or workout bench designed for easy storage and convenience. Built with a collapsible frame, it can be quickly folded flat to save space when not in use, making it ideal for small homes, outdoor activities, events, or mobile setups. Despite its compact design, a folding bench typically features a sturdy structure made from durable materials such as steel, aluminum, or reinforced plastic. Its surface may include padded or non-padded options depending on use. Practical, space-efficient, and versatile, a folding bench offers reliable support while allowing effortless transport and storage.',
+                    features: [
+                        'Space-saving foldable design.',
+                        'Lightweight yet sturdy.',
+                        'Easy to store and transport.',
+                        'Quick setup and fold mechanism.',
+                        'Robust locking when unfolded.',
+                        'Versatile for multiple uses.'
+                    ]
+                },
+                'adjustable': {
+                    img: 'custombench.webp',
+                    title: 'Adjustable Bench',
+                    description: 'A customization bench is a tailor-made bench designed to meet specific user preferences in style, functionality, and performance. Built to order, it allows complete flexibility in selecting materials, dimensions, colors, and structural features. Whether crafted for fitness use, commercial spaces, or home environments, the customization bench can include options such as adjustable seating, reinforced frames, specialized padding, or personalized branding. Designed to match unique needs and aesthetics, this bench delivers a perfect blend of durability, comfort, and individually crafted design.',
+                    features: [
+                        'Height-adjustable mechanism.',
+                        'Easy-to-use adjustment controls.',
+                        'Stable at all height levels.',
+                        'Heavy-duty construction.',
+                        'Wide range of height settings.',
+                        'Ideal for various user heights.'
+                    ]
+                }
+            },
+            // Hospital Equipment data
+            '2': {
+                'hospital-bed': {
+                    img: 'hb.webp',
+                    title: 'Hospital Bed',
+                    description: 'A hospital bed is a specialized medical bed designed to provide comfort, safety, and essential support for patients in healthcare settings. It features an adjustable frame that allows caregivers to raise or lower the head, foot, and overall height of the bed to facilitate treatment, enhance patient comfort, and assist with mobility. Hospital beds typically include side rails for safety, lockable wheels for easy movement, and a durable structure built to withstand continuous use. Many modern hospital beds offer advanced functions such as electronic controls, Trendelenburg positioning, and built-in monitoring or support accessories. Designed for both patient care and caregiver efficiency, a hospital bed is a critical component of medical environments including hospitals, clinics, and long-term care facilities.',
+                    features: [
+                        'Adjustable height and backrest.',
+                        'Side rails for patient safety.',
+                        'Medical-grade materials.',
+                        'Easy to clean and disinfect.',
+                        'Locking casters for stability.',
+                        'Emergency CPR function.'
+                    ]
+                },
+                'icu-equipment': {
+                    img: 'Hospital-Dressing-Trolley.jpg',
+                    title: 'Compact Dressing Trolley',
+                    description: 'A compact dressing trolley is a small, mobile cart specifically designed for storing and transporting wound care supplies and equipment. Its key characteristic is its space-efficient design, making it ideal for environments where floor space is limited, such as small treatment rooms, home care settings, or busy clinics where multiple trolleys are needed.',
+                    features: [
+                        'Frame & Build: Made from durable, lightweight, and easy-to-clean materials like chrome-plated steel or medical-grade aluminum. Its often corrosion-resista.',
+                        'A push-handle on one or both ends for easy movement and to provide a point for hanging waste bags or IV fluids.',
+                        'Emergency backup systems.',
+                        'Easy-to-use interfaces.',
+                        'Compliance with medical standards.',
+                        
+                    ]
+                },
+                'surgical-table': {
+                    img: 'stainless-steel-saline-stand-500x500.webp',
+                    title: 'S.S Saline Stand ',
+                    description: 'In the fast-paced environment of a hospital, the Stainless Steel (S.S.) Saline Stand is an indispensable, ubiquitous piece of equipment. It is a mobile pole used primarily to administer intravenous (IV) fluids, medications, blood products, and nutritional support to patients.',
+                    features: [
+                        'Precision height adjustment.',
+                        'Multiple positioning options.',
+                        'Radioucent tabletop.',
+                        'Easy to clean surfaces.',
+                        'Stable and secure base.',
+                        'Compatible with imaging equipment.'
+                    ]
+                },
+                'medical-cart': {
+                    img: 'swing-away-type-ss-tube-pair-rail.jpg',
+                    title: 'Swing-away Railling',
+                    description: 'A Swing-away Rail (also commonly known as a Bed Assist Bar, Transfer Rail, or Safety Rail) is a movable handle or bar mounted to the side of a hospital bed. Its primary function is to provide patients with a stable and secure handhold to assist with movement while in bed.',
+                    features: [
+                        'Multiple storage compartments.',
+                        'Easy-to-clean surfaces.',
+                        'Smooth-rolling casters.',
+                        'Lockable storage options.',
+                        'Ergonomic handle design.',
+                        'Durable construction materials.'
+                    ]
+                }
+            },
+            // Machinery Works data
+            '3': {
+                'converter-machine': {
+                    img: 'belt-conveyor-machine-515.jpg',
+                    title: 'Belt Conveyor Machine<',
+                    description: 'A belt conveyor is a ubiquitous material handling system that moves items, bulk materials, or packages from one location to another using a continuous loop of material—the conveyor belt. This belt is stretched over a frame and is supported along its length by a series of rollers called idlers. The belt is driven at one end by a motorized pulley (the drive pulley), which provides the traction to move the belt and its load. The other end houses a return pulley that guides the belt back to the loading point.',
+                    features: [
+                        'The primary advantage of a belt conveyor is its ability to provide a continuous and consistent flow of material.',
+                        'Can be straight, inclined, declined, or even include curves. They can be horizontal or set at an angle to change elevation.',
+                        'Durable construction for long service life.',
+                        'Ranges from small, delicate conveyors in electronics assembly to massive, kilometer-long systems in mining.',
+                        'Customizable to specific requirements.',
+                        'Belt Material: Can be rubber, PVC, fabric, metal mesh, or plastic modular, chosen based on the product (e.g., food-grade, high-temperature, abrasive materials).'
+                    ]
+                },
+                'pipe-tube-mill': {
+                    img: 'tube-mill-for-stainless-steel.jpg',
+                    title: 'Pipe Tube Mill',
+                    description: 'Tube Mill is a highly automated, continuous production line that forms flat strip metal (skelp) into a cylindrical shape and then welds the seam to create a continuous length of pipe or tubing.The fundamental process involves progressively shaping the metal strip through a series of paired rolls, known as a "roll forming" or "forming section." Once the edges are brought together, a welding process (most commonly high-frequency for steel) fuses them. The weld is then cleaned, the pipe is sized to its final dimensions, cut to length, and often processed further.',
+                    features: [
+                        'A pipe/tube mill is a continuous roll-forming line that welds, sizes, and cuts strip metal into precise cylindrical products at high speed.',
+                        'It transforms flat metal strip into a cylindrical shape through a series of rolls and then welds the seam to create a continuous pipe or tube.',
+                        'Automated quality monitoring.',
+                        'Once set up, it is an extremely efficient system designed for the high-volume manufacturing of standardized welded pipe and tubing.',
+                        'Easy tool change system.',
+                        'Energy-efficient operation.',
+                        
+                    ]
+                },
+                'power-press': {
+                    img: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+                    title: 'Power Press',
+                    description: 'Our Power Press machines deliver reliable performance for metal forming operations, with robust construction and safety features for industrial applications.',
+                    features: [
+                        'Robust frame construction',
+                        'Precision stroke control',
+                        'Integrated safety systems',
+                        'Easy die change mechanism',
+                        'Low vibration operation',
+                        'Energy-efficient design'
+                    ]
+                },
+                'custom-solution': {
+                    img: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+                    title: 'Custom Solution',
+                    description: 'We provide custom machinery solutions tailored to your specific manufacturing requirements, with engineering expertise and comprehensive support.',
+                    features: [
+                        'Tailored to specific needs',
+                        'Expert engineering consultation',
+                        'Comprehensive project management',
+                        'Quality assurance throughout',
+                        'Training and documentation',
+                        'Ongoing technical support'
+                    ]
+                }
+            }
+        };
+
+        // Initialize event listeners when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click event to product cards
+            const productCards = document.querySelectorAll('.product-card');
+            productCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const productId = this.getAttribute('data-product');
+                    showProductDetails(productId);
+                });
+            });
+
+            // Add click event to product items in galleries
+            const productItems = document.querySelectorAll('.product-item');
+            productItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const productType = this.getAttribute('data-product');
+                    const parentGallery = this.closest('.product-details');
+                    const productId = parentGallery.id.split('-')[2]; // Extract ID from "product-details-1"
+                    
+                    // Update active state
+                    const siblings = this.parentElement.querySelectorAll('.product-item');
+                    siblings.forEach(sibling => sibling.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Update product display
+                    updateProductDisplay(productId, productType);
+                });
+            });
+        });
+
+        // Show product details gallery
+        function showProductDetails(productId) {
+            // Hide all product details sections
+            const allDetails = document.querySelectorAll('.product-details');
+            allDetails.forEach(detail => {
+                detail.style.display = 'none';
+            });
+            
+            // Hide products section
+            document.getElementById('products').style.display = 'none';
+            
+            // Show the selected product details
+            document.getElementById('product-details-' + productId).style.display = 'block';
+        }
+
+        // Hide product details and show main products
+        function hideProductDetails() {
+            // Hide all product details sections
+            const allDetails = document.querySelectorAll('.product-details');
+            allDetails.forEach(detail => {
+                detail.style.display = 'none';
+            });
+            
+            // Show products section
+            document.getElementById('products').style.display = 'block';
+        }
+
+        // Update product display when category is changed
+        function updateProductDisplay(productId, productType) {
+            const product = productData[productId][productType];
+            
+            // Update image, title, description, and features based on productId
+            switch(productId) {
+                case '1': // Benches
+                    document.getElementById('bench-img').src = product.img;
+                    document.getElementById('bench-title').textContent = product.title;
+                    document.getElementById('bench-description').textContent = product.description;
+                    
+                    const benchFeatures = document.getElementById('bench-features');
+                    benchFeatures.innerHTML = '';
+                    product.features.forEach(feature => {
+                        const li = document.createElement('li');
+                        li.textContent = feature;
+                        benchFeatures.appendChild(li);
+                    });
+                    break;
+                    
+                case '2': // Hospital Equipment
+                    document.getElementById('hospital-img').src = product.img;
+                    document.getElementById('hospital-title').textContent = product.title;
+                    document.getElementById('hospital-description').textContent = product.description;
+                    
+                    const hospitalFeatures = document.getElementById('hospital-features');
+                    hospitalFeatures.innerHTML = '';
+                    product.features.forEach(feature => {
+                        const li = document.createElement('li');
+                        li.textContent = feature;
+                        hospitalFeatures.appendChild(li);
+                    });
+                    break;
+                    
+                case '3': // Machinery Works
+                    document.getElementById('machinery-img').src = product.img;
+                    document.getElementById('machinery-title').textContent = product.title;
+                    document.getElementById('machinery-description').textContent = product.description;
+                    
+                    const machineryFeatures = document.getElementById('machinery-features');
+                    machineryFeatures.innerHTML = '';
+                    product.features.forEach(feature => {
+                        const li = document.createElement('li');
+                        li.textContent = feature;
+                        machineryFeatures.appendChild(li);
+                    });
+                    break;
+            }
+        }
+    </script>
+
+<!-- updated product page end -->
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-compass-drafting"></i>
+                    </div>
+                    <h3>Fabrication Job Works</h3>
+                    <p>The fabrication job work includes the complete processing of raw materials into finished components according to the client's drawings and all fabrication activities such as measuring, cutting, bending, and welding will be executed with strict quality control.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Contract Base Job</h3>
+                    <p>All fabrication tasks will be executed under a contract arrangement, with responsibilities, timelines, and deliverables defined and approved by both parties.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Founded in 2010, Shakti Industries has been at the forefront of technology innovation, helping businesses of all sizes machinery Works & fabrication solutions to drive growth and efficiency.</p>
+                    <p>Our mission is to empower organizations with technology that simplifies complexity, enhances productivity, and creates competitive advantages in today's digital landscape.</p>
+                    <p>With a team of over experts across multiple disciplines, we've successfully delivered more than 500 projects for clients in various industries including healthcare, retail, and manufacturing.</p>
+                    
+                    <div class="founder-info">
+                        <div>
+                            <h4>Ashok Vishwakarma</h4>
+                            <p>Founder</p>
+                            <h4>Aman Ashok Vishwakarma</h4>
+                            <p>CEO</p>
+                            <p>"Our vision is to create technology that not only solves business problems but also makes a positive impact on society."</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-img">
+                    <img src="shaktiindwall.png" alt="Our Office">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section id="clients" class="clients">
+        <div class="container">
+            <h2>Our Clients</h2>
+            <p style="text-align: center; margin-bottom: 50px; max-width: 700px; margin-left: auto; margin-right: auto;">We're proud to partner with industry leaders and innovative startups across various sectors.</p>
+            <div class="clients-grid">
+                <div class="client-logo">
+                    <img src="midmark.jfif" alt="Midmark">
+                </div>
+                <div class="client-logo">
+                    <img src="kns.avif" alt="">
+                </div>
+                <div class="client-logo">
+                    <img src="vs.avif" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Our Address</h3>
+                            <p>Gala No-10, Sai Complex OHM Industrial Infrastructure PA, Dehari, Umbergoan, Valsad, PIN-396-170</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h3>Working Hours</h3>
+                            <p>Tuesday - Sunday: 9:00 AM - 6:00 PM</p>
+                            <p>Monday - Closed</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h3>Mobile Number</h3>
+                            <p>+91 84888 53577 / +91 99744 54208</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3>Email Address</h3>
+                            <p>shaktiindustrieswork@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Shakti Industries</h3>
+                    <p>Leading provider of Benches, hospital equipment products and provide machinery works solutions for businesses.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#clients">Clients</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Products</h3>
+                    <ul class="footer-links">
+                        <li><a href="#product-details-1" onclick="showProductDetails(1)">Benches</a></li>
+                        <li><a href="#product-details-2" onclick="showProductDetails(2)">Hospital Equipments</a></li>
+                        <li><a href="#product-details-3" onclick="showProductDetails(3)">Machinery Works</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Gala No-10, Sai Complex OHM Industrial Infrastructure PA, Dehari, Umbergoan, Valsad, PIN-396-170</li>
+                        <li><i class="fas fa-phone"></i> +91 84888 53577</li>
+                        <li><i class="fas fa-envelope"></i> shaktiindustrieswork@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Shakti Industries. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Navigation Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+        
+        // Image Slider Functionality
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.slider-dot');
+        let currentSlide = 0;
+        
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            currentSlide = (n + slides.length) % slides.length;
+            
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+        
+        // Auto slide change
+        setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 5000);
+        
+        // Dot click events
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+    </script>
+</body>
+</html>
